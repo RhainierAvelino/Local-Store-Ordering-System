@@ -99,6 +99,45 @@ if(isset($_POST['submit'])){
 
 
 
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    document.querySelector("form").addEventListener("submit", function (e) {
+      let name = document.querySelector("input[name='name']").value.trim();
+      let email = document.querySelector("input[name='email']").value.trim();
+      let number = document.querySelector("input[name='number']").value.trim();
+      let pass = document.querySelector("input[name='pass']").value.trim();
+      let cpass = document.querySelector("input[name='cpass']").value.trim();
+
+      let emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/; // Simple email validation
+      let phoneRegex = /^(\+63|0)\d{10}$/; // +63 or 0 followed by 10 digits
+      let passRegex = /^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,}$/; // At least 8 characters, 1 letter, 1 number
+
+      if (!emailRegex.test(email)) {
+        alert("Please enter a valid email.");
+        e.preventDefault();
+        return;
+      }
+
+      if (!phoneRegex.test(number)) {
+        alert("Please enter a valid 11-digit phone number (e.g., 09XXXXXXXXX).");
+        e.preventDefault();
+        return;
+      }
+
+      if (!passRegex.test(pass)) {
+        alert("Password must be at least 8 characters and include at least one letter and one number.");
+        e.preventDefault();
+        return;
+      }
+
+      if (pass !== cpass) {
+        alert("Passwords do not match.");
+        e.preventDefault();
+        return;
+      }
+    });
+  });
+</script>
 
 
 
