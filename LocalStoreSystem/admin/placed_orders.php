@@ -1,5 +1,4 @@
 <?php
-
 include '../components/connect.php';
 
 session_start();
@@ -26,7 +25,6 @@ if(isset($_GET['delete'])){
    $delete_order->execute([$delete_id]);
    header('location:placed_orders.php');
 }
-
 ?>
 
 <!DOCTYPE html>
@@ -35,78 +33,124 @@ if(isset($_GET['delete'])){
    <meta charset="UTF-8">
    <meta http-equiv="X-UA-Compatible" content="IE=edge">
    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-   <title>placed orders</title>
+   <title>Placed Orders</title>
 
-   <!-- font awesome cdn link  -->
+   <!-- Font Awesome CDN Link -->
    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
 
-   <!-- custom css file link  -->
+   <!-- Custom CSS File Link -->
    <link rel="stylesheet" href="../css/admin_style.css">
-
 </head>
 <body>
 
-<?php include '../components/admin_header.php' ?>
+<?php include '../components/admin_header.php'; ?>
 
-<!-- placed orders section starts  -->
-
+<!-- Placed Orders Section Starts -->
 <section class="placed-orders">
 
-   <h1 class="heading">placed orders</h1>
+   <h1 class="heading">Placed Orders</h1>
+
+   <!-- Search Form -->
+<form action="" method="GET" class="search-form">
+   <input type="text" name="search" placeholder="Search by User ID or Name" value="<?= isset($_GET['search']) ? $_GET['search'] : ''; ?>" class="search-input">
+   <button type="submit" class="search-btn">Search</button>
+</form>
+<!-- Style Search Form -->
+ <style>
+   .search-form {
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   margin: 20px 0;
+}
+
+.search-input {
+   padding: 8px 15px;
+   border: 1px solid #ccc;
+   border-radius: 5px;
+   font-size: 16px;
+   width: 250px;
+   margin-right: 10px;
+   outline: none;
+   transition: border-color 0.3s ease;
+}
+
+.search-input:focus {
+   border-color: var(--red);
+}
+
+.search-btn {
+   padding: 8px 15px;
+   border: none;
+   background-color: var(--red);
+   color: white;
+   border-radius: 5px;
+   cursor: pointer;
+   font-size: 16px;
+   transition: background-color 0.3s ease;
+}
+
+.search-btn:hover {
+   background-color: #c82333;
+}
+
+ </style>
+
 
    <div class="box-container">
-
+   
    <?php
-      $select_orders = $conn->prepare("SELECT * FROM `orders`");
-      $select_orders->execute();
+      // Check if there is a search query
+      $search = isset($_GET['search']) ? $_GET['search'] : '';
+   
+      // Modify the SQL query to include the search condition
+      if($search != '') {
+         $select_orders = $conn->prepare("SELECT * FROM `orders` WHERE `user_id` LIKE ? OR `name` LIKE ?");
+         $select_orders->execute(['%' . $search . '%', '%' . $search . '%']);
+      } else {
+         $select_orders = $conn->prepare("SELECT * FROM `orders`");
+         $select_orders->execute();
+      }
+
       if($select_orders->rowCount() > 0){
          while($fetch_orders = $select_orders->fetch(PDO::FETCH_ASSOC)){
    ?>
    <div class="box">
-      <p> user id : <span><?= $fetch_orders['user_id']; ?></span> </p>
-      <p> placed on : <span><?= $fetch_orders['placed_on']; ?></span> </p>
-      <p> name : <span><?= $fetch_orders['name']; ?></span> </p>
-      <p> email : <span><?= $fetch_orders['email']; ?></span> </p>
-      <p> number : <span><?= $fetch_orders['number']; ?></span> </p>
-      <p> address : <span><?= $fetch_orders['address']; ?></span> </p>
-      <p> total products : <span><?= $fetch_orders['total_products']; ?></span> </p>
-      <p> total price : <span>$<?= $fetch_orders['total_price']; ?>/-</span> </p>
-      <p> payment method : <span><?= $fetch_orders['method']; ?></span> </p>
+      <p> User ID : <span><?= $fetch_orders['user_id']; ?></span> </p>
+      <p> Placed On : <span><?= $fetch_orders['placed_on']; ?></span> </p>
+      <p> Name : <span><?= $fetch_orders['name']; ?></span> </p>
+      <p> Email : <span><?= $fetch_orders['email']; ?></span> </p>
+      <p> Number : <span><?= $fetch_orders['number']; ?></span> </p>
+      <p> Address : <span><?= $fetch_orders['address']; ?></span> </p>
+      <p> Total Products : <span><?= $fetch_orders['total_products']; ?></span> </p>
+      <p> Total Price : <span>$<?= $fetch_orders['total_price']; ?>/-</span> </p>
+      <p> Payment Method : <span><?= $fetch_orders['method']; ?></span> </p>
       <form action="" method="POST">
          <input type="hidden" name="order_id" value="<?= $fetch_orders['id']; ?>">
          <select name="payment_status" class="drop-down">
             <option value="" selected disabled><?= $fetch_orders['payment_status']; ?></option>
-            <option value="pending">pending</option>
-            <option value="completed">completed</option>
+            <option value="pending">Pending</option>
+            <option value="completed">Completed</option>
          </select>
          <div class="flex-btn">
-            <input type="submit" value="update" class="btn" name="update_payment">
-            <a href="placed_orders.php?delete=<?= $fetch_orders['id']; ?>" class="delete-btn" onclick="return confirm('delete this order?');">delete</a>
+            <input type="submit" value="Update" class="btn" name="update_payment">
+            <a href="placed_orders.php?delete=<?= $fetch_orders['id']; ?>" class="delete-btn" onclick="return confirm('Delete this order?');">Delete</a>
          </div>
       </form>
    </div>
    <?php
       }
-   }else{
-      echo '<p class="empty">no orders placed yet!</p>';
+   } else {
+      echo '<p class="empty">No orders placed yet!</p>';
    }
    ?>
 
    </div>
 
 </section>
+<!-- Placed Orders Section Ends -->
 
-<!-- placed orders section ends -->
-
-
-
-
-
-
-
-
-
-<!-- custom js file link  -->
+<!-- Custom JS File Link -->
 <script src="../js/admin_script.js"></script>
 
 </body>
