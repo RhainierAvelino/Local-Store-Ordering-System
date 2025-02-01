@@ -8,40 +8,49 @@ $admin_id = $_SESSION['admin_id'];
 
 if(!isset($admin_id)){
    header('location:admin_login.php');
-};
+}
 
-if(isset($_POST['update'])){
+if(isset($_POST['submit'])){
 
-   $pid = $_POST['pid'];
-   $pid = filter_var($pid, FILTER_SANITIZE_STRING);
    $name = $_POST['name'];
    $name = filter_var($name, FILTER_SANITIZE_STRING);
-   $price = $_POST['price'];
-   $price = filter_var($price, FILTER_SANITIZE_STRING);
-   $category = $_POST['category'];
-   $category = filter_var($category, FILTER_SANITIZE_STRING);
 
-   $update_product = $conn->prepare("UPDATE `products` SET name = ?, category = ?, price = ? WHERE id = ?");
-   $update_product->execute([$name, $category, $price, $pid]);
-
-   $message[] = 'product updated!';
-
-   $old_image = $_POST['old_image'];
-   $image = $_FILES['image']['name'];
-   $image = filter_var($image, FILTER_SANITIZE_STRING);
-   $image_size = $_FILES['image']['size'];
-   $image_tmp_name = $_FILES['image']['tmp_name'];
-   $image_folder = '../uploaded_img/'.$image;
-
-   if(!empty($image)){
-      if($image_size > 2000000){
-         $message[] = 'images size is too large!';
+   if(!empty($name)){
+      $select_name = $conn->prepare("SELECT * FROM `admin` WHERE name = ?");
+      $select_name->execute([$name]);
+      if($select_name->rowCount() > 0){
+         $message[] = 'username already taken!';
       }else{
-         $update_image = $conn->prepare("UPDATE `products` SET image = ? WHERE id = ?");
-         $update_image->execute([$image, $pid]);
-         move_uploaded_file($image_tmp_name, $image_folder);
-         unlink('../uploaded_img/'.$old_image);
-         $message[] = 'image updated!';
+         $update_name = $conn->prepare("UPDATE `admin` SET name = ? WHERE id = ?");
+         $update_name->execute([$name, $admin_id]);
+      }
+   }
+
+   $empty_pass = 'da39a3ee5e6b4b0d3255bfef95601890afd80709';
+   $select_old_pass = $conn->prepare("SELECT password FROM `admin` WHERE id = ?");
+   $select_old_pass->execute([$admin_id]);
+   $fetch_prev_pass = $select_old_pass->fetch(PDO::FETCH_ASSOC);
+   $prev_pass = $fetch_prev_pass['password'];
+   $old_pass = sha1($_POST['old_pass']);
+   $old_pass = filter_var($old_pass, FILTER_SANITIZE_STRING);
+   $new_pass = sha1($_POST['new_pass']);
+   $new_pass = filter_var($new_pass, FILTER_SANITIZE_STRING);
+   $confirm_pass = sha1($_POST['confirm_pass']);
+   $confirm_pass = filter_var($confirm_pass, FILTER_SANITIZE_STRING);
+
+   if($old_pass != $empty_pass){
+      if($old_pass != $prev_pass){
+         $message[] = 'old password not matched!';
+      }elseif($new_pass != $confirm_pass){
+         $message[] = 'confirm password not matched!';
+      }else{
+         if($new_pass != $empty_pass){
+            $update_pass = $conn->prepare("UPDATE `admin` SET password = ? WHERE id = ?");
+            $update_pass->execute([$confirm_pass, $admin_id]);
+            $message[] = 'password updated successfully!';
+         }else{
+            $message[] = 'please enter a new password!';
+         }
       }
    }
 
@@ -55,7 +64,7 @@ if(isset($_POST['update'])){
    <meta charset="UTF-8">
    <meta http-equiv="X-UA-Compatible" content="IE=edge">
    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-   <title>update product</title>
+   <title>profile update</title>
 
    <!-- font awesome cdn link  -->
    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
@@ -68,53 +77,22 @@ if(isset($_POST['update'])){
 
 <?php include '../components/admin_header.php' ?>
 
-<!-- update product section starts  -->
+<!-- admin profile update section starts  -->
 
-<section class="update-product">
+<section class="form-container">
 
-   <h1 class="heading">update product</h1>
-
-   <?php
-      $update_id = $_GET['update'];
-      $show_products = $conn->prepare("SELECT * FROM `products` WHERE id = ?");
-      $show_products->execute([$update_id]);
-      if($show_products->rowCount() > 0){
-         while($fetch_products = $show_products->fetch(PDO::FETCH_ASSOC)){  
-   ?>
-   <form action="" method="POST" enctype="multipart/form-data">
-      <input type="hidden" name="pid" value="<?= $fetch_products['id']; ?>">
-      <input type="hidden" name="old_image" value="<?= $fetch_products['image']; ?>">
-      <img src="../uploaded_img/<?= $fetch_products['image']; ?>" alt="">
-      <span>update name</span>
-      <input type="text" required placeholder="enter product name" name="name" maxlength="100" class="box" value="<?= $fetch_products['name']; ?>">
-      <span>update price</span>
-      <input type="number" min="0" max="9999999999" required placeholder="enter product price" name="price" onkeypress="if(this.value.length == 10) return false;" class="box" value="<?= $fetch_products['price']; ?>">
-      <span>update category</span>
-      <select name="category" class="box" required>
-         <option selected value="<?= $fetch_products['category']; ?>"><?= $fetch_products['category']; ?></option>
-         <option value="main dish">main dish</option>
-         <option value="fast food">fast food</option>
-         <option value="drinks">drinks</option>
-         <option value="desserts">desserts</option>
-      </select>
-      <span>update image</span>
-      <input type="file" name="image" class="box" accept="image/jpg, image/jpeg, image/png, image/webp">
-      <div class="flex-btn">
-         <input type="submit" value="update" class="btn" name="update">
-         <a href="products.php" class="option-btn">go back</a>
-      </div>
+   <form action="" method="POST">
+      <h3>update profile</h3>
+      <input type="text" name="name" maxlength="20" class="box" oninput="this.value = this.value.replace(/\s/g, '')" placeholder="<?= $fetch_profile['name']; ?>">
+      <input type="password" name="old_pass" maxlength="20" placeholder="enter your old password" class="box" oninput="this.value = this.value.replace(/\s/g, '')">
+      <input type="password" name="new_pass" maxlength="20" placeholder="enter your new password" class="box" oninput="this.value = this.value.replace(/\s/g, '')">
+      <input type="password" name="confirm_pass" maxlength="20" placeholder="confirm your new password" class="box" oninput="this.value = this.value.replace(/\s/g, '')">
+      <input type="submit" value="update now" name="submit" class="btn">
    </form>
-   <?php
-         }
-      }else{
-         echo '<p class="empty">no products added yet!</p>';
-      }
-   ?>
 
 </section>
 
-<!-- update product section ends -->
-
+<!-- admin profile update section ends -->
 
 
 
