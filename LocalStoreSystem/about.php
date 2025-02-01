@@ -47,13 +47,13 @@ if(isset($_SESSION['user_id'])){
    <div class="row">
 
       <div class="image">
-         <img src="images/about-img.svg" alt="">
+         <img src="images/why-choose.png" alt="">
       </div>
 
       <div class="content">
          <h3>why choose us?</h3>
-         <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Deserunt, neque debitis incidunt qui ipsum sed doloremque a molestiae in veritatis ullam similique sunt aliquam dolores dolore? Quasi atque debitis nobis!</p>
-         <a href="menu.php" class="btn">our menu</a>
+         <p>At Old Yorker's, we pride ourselves on offering snacks that are made only with the freshest and real ingredients. Unlike many snack bars that use powders and artificial flavorings, we use real coffee beans for our coffee, fresh lemons for our lemonades, premium U.S. hotdog for our sandwiches, and only the most natural ingredients for our snacks and beverages. We value our commitment to quality, and we believe that quality doesn't mean costly. We also offer free delivery for orders within Metro Manila, making it easier than ever to enjoy your favorite snacks. With 8 locations and counting, we're excited to expand and bring our specialties closer to you!</p>
+         <a href="menu.php" class="btn">Our menu</a>
       </div>
 
    </div>
@@ -62,124 +62,102 @@ if(isset($_SESSION['user_id'])){
 
 <!-- about section ends -->
 
-<!-- steps section starts  -->
-
-<section class="steps">
-
-   <h1 class="title">simple steps</h1>
-
-   <div class="box-container">
-
-      <div class="box">
-         <img src="images/step-1.png" alt="">
-         <h3>choose order</h3>
-         <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Nesciunt, dolorem.</p>
+<section class="franchise">
+   <h1 class="title">Work with us!</h1>
+      <div class="container">
+         <div class="column">
+            <img src="images/franchise-poster.png" alt="Franchise Poster">
+         </div>
+         <div class="column">
+            <img src="images/franchise-details.png" alt="Franchise Details">
+         </div>
       </div>
-
-      <div class="box">
-         <img src="images/step-2.png" alt="">
-         <h3>fast delivery</h3>
-         <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Nesciunt, dolorem.</p>
-      </div>
-
-      <div class="box">
-         <img src="images/step-3.png" alt="">
-         <h3>enjoy food</h3>
-         <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Nesciunt, dolorem.</p>
-      </div>
-
-   </div>
-
 </section>
-
-<!-- steps section ends -->
-
-<!-- reviews section starts  -->
 
 <section class="reviews">
 
-   <h1 class="title">customer's reivews</h1>
+   <h1 class="title">Customer Reviews</h1>
 
    <div class="swiper reviews-slider">
 
       <div class="swiper-wrapper">
 
          <div class="swiper-slide slide">
-            <img src="images/pic-1.png" alt="">
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quos voluptate eligendi laborum molestias ut earum nulla sint voluptatum labore nemo.</p>
+            <img src="images/review1.jpg" alt="">
+            <h3>Kristina Se</h3>
+            <p>Love their Cheesy Hotdog Sandwich! Hindi talaga tinipid sa ingredients. The Chicken Poppers are so good with their dip! ✨</p>
             <div class="stars">
                <i class="fas fa-star"></i>
                <i class="fas fa-star"></i>
                <i class="fas fa-star"></i>
                <i class="fas fa-star"></i>
-               <i class="fas fa-star-half-alt"></i>
+               <i class="fas fa-star"></i>
             </div>
-            <h3>john deo</h3>
          </div>
 
          <div class="swiper-slide slide">
-            <img src="images/pic-2.png" alt="">
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quos voluptate eligendi laborum molestias ut earum nulla sint voluptatum labore nemo.</p>
+            <img src="images/review2.jpg" alt="">
+            <h3>Jaji Santillan</h3>
+            <p>yum ang food & budget-friendly! also, good din ang service, very responsive sila. would definitely try again and reco this 🤍</p>
             <div class="stars">
                <i class="fas fa-star"></i>
                <i class="fas fa-star"></i>
                <i class="fas fa-star"></i>
                <i class="fas fa-star"></i>
-               <i class="fas fa-star-half-alt"></i>
+               <i class="fas fa-star"></i>
             </div>
-            <h3>john deo</h3>
          </div>
 
          <div class="swiper-slide slide">
-            <img src="images/pic-3.png" alt="">
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quos voluptate eligendi laborum molestias ut earum nulla sint voluptatum labore nemo.</p>
+            <img src="images/review3.jpg" alt="">
+            <h3>Rodolfo Montoya</h3>
+            <p>Would recommend! Masarap yung food and friendly mga staff. A must try yung chicken poppers and mojos!</p>
             <div class="stars">
                <i class="fas fa-star"></i>
                <i class="fas fa-star"></i>
                <i class="fas fa-star"></i>
                <i class="fas fa-star"></i>
-               <i class="fas fa-star-half-alt"></i>
+               <i class="fas fa-star"></i>
             </div>
-            <h3>john deo</h3>
          </div>
 
          <div class="swiper-slide slide">
-            <img src="images/pic-4.png" alt="">
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quos voluptate eligendi laborum molestias ut earum nulla sint voluptatum labore nemo.</p>
+            <img src="images/review4.jpg" alt="">
+            <h3>Lovely Ubaldo</h3>
+            <p>Highly recommended po mojos, sandwich at lemon yakult ninyo✨👌 Definitely, will order again🫶</p>
             <div class="stars">
                <i class="fas fa-star"></i>
                <i class="fas fa-star"></i>
                <i class="fas fa-star"></i>
                <i class="fas fa-star"></i>
-               <i class="fas fa-star-half-alt"></i>
+               <i class="fas fa-star"></i>
             </div>
-            <h3>john deo</h3>
          </div>
 
          <div class="swiper-slide slide">
-            <img src="images/pic-5.png" alt="">
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quos voluptate eligendi laborum molestias ut earum nulla sint voluptatum labore nemo.</p>
+            <img src="images/review5.jpg" alt="">
+            <h3>Trina Martin</h3>
+            <p>Super duper sulit sa price! Sobrang sarap! Ang bilis pang mag deliver ❤️ Ang laki pa ng serving. Thankyou super satisfied!</p>
             <div class="stars">
                <i class="fas fa-star"></i>
                <i class="fas fa-star"></i>
                <i class="fas fa-star"></i>
                <i class="fas fa-star"></i>
-               <i class="fas fa-star-half-alt"></i>
+               <i class="fas fa-star"></i>
             </div>
-            <h3>john deo</h3>
          </div>
 
          <div class="swiper-slide slide">
-            <img src="images/pic-6.png" alt="">
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quos voluptate eligendi laborum molestias ut earum nulla sint voluptatum labore nemo.</p>
+            <img src="images/review6.png" alt="">
+            <h3>Catlin Creeper</h3>
+            <p>If only this was close to our place- I will definitely buy so often if so! Definitely worth the wait! Highly recommend this place!</p>
             <div class="stars">
                <i class="fas fa-star"></i>
                <i class="fas fa-star"></i>
                <i class="fas fa-star"></i>
                <i class="fas fa-star"></i>
-               <i class="fas fa-star-half-alt"></i>
+               <i class="fas fa-star"></i>
             </div>
-            <h3>john deo</h3>
          </div>
 
       </div>
@@ -248,6 +226,10 @@ var swiper = new Swiper(".reviews-slider", {
 });
 
 </script>
+   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+      crossorigin="anonymous"></script>
 
 </body>
+
 </html>

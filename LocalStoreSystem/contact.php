@@ -49,6 +49,7 @@ if(isset($_POST['send'])){
 
    <!-- font awesome cdn link  -->
    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
+   <link href="https://fonts.cdnfonts.com/css/dk-headlock" rel="stylesheet">
 
    <!-- custom css file link  -->
    <link rel="stylesheet" href="css/style.css">
@@ -78,7 +79,7 @@ if(isset($_POST['send'])){
       <form action="" method="post">
          <h3>tell us something!</h3>
          <input type="text" name="name" maxlength="50" class="box" placeholder="enter your name" required>
-         <input type="number" name="number" min="0" max="9999999999" class="box" placeholder="enter your number" required maxlength="10">
+         <input type="number" name="number" min="0" max="9999999999" class="box" placeholder="enter your number" required maxlength="11">
          <input type="email" name="email" maxlength="50" class="box" placeholder="enter your email" required>
          <textarea name="msg" class="box" required placeholder="enter your message" maxlength="500" cols="30" rows="10"></textarea>
          <input type="submit" value="send message" name="send" class="btn">

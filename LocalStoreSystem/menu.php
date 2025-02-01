@@ -24,7 +24,7 @@ include 'components/add_cart.php';
 
    <!-- font awesome cdn link  -->
    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
-
+   <link href="https://fonts.cdnfonts.com/css/dk-headlock" rel="stylesheet">
    <!-- custom css file link  -->
    <link rel="stylesheet" href="css/style.css">
 
@@ -65,7 +65,7 @@ include 'components/add_cart.php';
          <a href="category.php?category=<?= $fetch_products['category']; ?>" class="cat"><?= $fetch_products['category']; ?></a>
          <div class="name"><?= $fetch_products['name']; ?></div>
          <div class="flex">
-            <div class="price"><span>$</span><?= $fetch_products['price']; ?></div>
+            <div class="price"><span>₱ </span><?= $fetch_products['price']; ?></div>
             <input type="number" name="qty" class="qty" min="1" max="99" value="1" maxlength="2"">
          </div>
       </form>
