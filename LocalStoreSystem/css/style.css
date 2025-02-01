@@ -51,11 +51,22 @@ html {
   overflow-x: hidden;
   scroll-behavior: smooth;
   stop-opacity: 7rem;
-  background-color: var(--black);
-  /* background-image: url(../images/Background/chalk5.svg); */
   background-size: cover;
   background-position: center;
   background-repeat: repeat-y;
+}
+
+body {
+  background-color: var(--white);
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
+
+#home-body {
+  background-color: var(--black);
 }
 
 section {
@@ -131,7 +142,6 @@ section {
 
 .delete-btn:hover {
   background-color: #e07f00;
-
 }
 
 .disabled {
@@ -169,13 +179,17 @@ section {
 }
 
 .empty {
-  border: var(--border);
+  border: 0.2rem solid var(--black);
   padding: 1.5rem;
   text-align: center;
   width: 100%;
   font-size: 2rem;
   text-transform: capitalize;
   color: var(--yellow);
+}
+
+.home-empty {
+  border: var(--border);
 }
 
 .flex-btn {
@@ -298,8 +312,7 @@ section {
   width: 4.5rem;
 }
 
-.hero-container,
-.about-container {
+.hero-container {
   margin: 0;
   background-color: var(--white);
 }
@@ -325,7 +338,7 @@ section {
 }
 
 .hero .slide .image img {
-   width: 100%;
+  width: 100%;
 }
 
 .hero .slide .content {
@@ -346,7 +359,7 @@ section {
 }
 
 .swiper-wrapper {
-   margin-bottom: 2rem;
+  margin-bottom: 2rem;
 }
 
 .swiper-pagination-bullet-active {
@@ -503,7 +516,7 @@ section {
   width: 4.5rem;
   line-height: 4.3rem;
   border: var(--border);
-  background-color: var(--white);
+  background-color: var(--black);
   cursor: pointer;
   font-size: 2rem;
   color: var(--black);
@@ -545,7 +558,7 @@ section {
 
 .products .box-container .box .name {
   font-size: 2rem;
-  color: var(--white);
+  color: var(--black);
   margin: 1rem 0;
 }
 
@@ -559,7 +572,7 @@ section {
 .products .box-container .box .flex .price {
   margin-right: auto;
   font-size: 2.5rem;
-  color: var(--white);
+  color: var(--black);
 }
 
 .products .box-container .box .flex .price span {
@@ -573,7 +586,6 @@ section {
   font-size: 1.8rem;
   color: var(--black);
   font-weight: bold;
-
 }
 
 .products .box-container .box .flex .fa-edit {
@@ -671,10 +683,11 @@ section {
 .about .row .content {
   flex: 1 1 40rem;
   text-align: center;
+  padding: 1rem;
 }
 
 .about .row .content h3 {
-  font-size: 3rem;
+  font-size: 4rem;
   text-transform: capitalize;
   margin-bottom: 1rem;
   color: var(--yellow);
@@ -684,28 +697,91 @@ section {
   padding: 1rem 0;
   line-height: 2;
   font-size: 1.8rem;
-  color: var(--white);
+  color: var(--black);
+  text-align: justify;
 }
 
 .franchise .container {
-  display: flex; 
-  flex-wrap: wrap; 
-  justify-content: center;
-  gap: 10px; 
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 20px; /* Adjust gap as needed */
   margin: 0 auto;
-  max-width: 100%; 
+  max-width: 1200px; /* Adjust max-width as needed */
+  padding: 20px; /* Add padding for spacing */
 }
 
 .franchise .column {
-  flex: 1 1 50rem; 
-  padding: 5px;
-  box-sizing: border-box; 
+  box-sizing: border-box;
+}
+
+.franchise .image-column {
+  flex: 1; /* Takes 1/3 of the space */
+  max-width: 33.33%; /* Ensure it doesn't exceed 1/3 */
+}
+
+.franchise .cards-column {
+  flex: 2; /* Takes 2/3 of the space */
+  max-width: 66.66%; /* Ensure it doesn't exceed 2/3 */
 }
 
 .franchise img {
-  width: 100%; 
-  height: auto; 
+  width: 100%;
+  height: auto;
+  display: block; /* Ensure the image behaves as a block element */
 }
+
+.card-header {
+  background-color: #70911f; /* Change card header background color */
+  color: #fdf5e7; /* Change card header text color */
+}
+
+.card-body {
+  background-color: var(--white);
+}
+
+.card-title {
+  color: #70911f; /* Change card title color */
+}
+
+.text-bg-primary {
+  background-color: #70911f !important; /* Change background color for primary text */
+}
+
+.card {
+  min-width: 200px;
+  border-color: var(--red);
+}
+
+.column ul {
+  text-align: left;
+  padding: 1.5rem;
+}
+
+.column h4 {
+  font-size: 1.3rem;
+}
+
+.border-primary {
+  border-color: var(--red) !important;
+}
+
+.franchise .btn:hover {
+  border-color: var(--red);
+}
+
+.card {
+  min-width: 200px;
+  border-color: var(--red);
+}
+
+
+.column button {
+  font-size: 1.6rem;
+  border: var(--border);
+}
+
 .reviews .slide {
   margin-bottom: 4rem;
   border: var(--border);
@@ -723,7 +799,7 @@ section {
   padding: 1.5rem 0;
   line-height: 2;
   font-size: 1.6rem;
-  color: var(--white);
+  color: var(--black);
 }
 
 .reviews .slide .stars {
@@ -768,6 +844,7 @@ section {
 
 .contact .row form h3 {
   font-size: 2.5rem;
+  font-family: 'Rubik', sans-serif;
   color: var(--yellow);
   margin-bottom: 1rem;
   text-transform: capitalize;
@@ -1021,12 +1098,11 @@ section {
   gap: 1.5rem;
   margin: 1rem 0;
   color: var(--white);
-
 }
 
 .quick-view form .flex .price {
   font-size: 2.5rem;
-  color: var(--white);
+  color: var(--black);
 }
 
 .quick-view form .flex .price span {
@@ -1048,7 +1124,7 @@ section {
   text-align: center;
   border: var(--border);
   font-size: 2rem;
-  color: var(--white);
+  color: var(--black);
   cursor: pointer;
   text-transform: capitalize;
   background: none;
@@ -1071,6 +1147,10 @@ section {
   border: var(--border);
   padding: 2rem;
   text-align: center;
+  color: var(--black);
+}
+
+#home-body .footer .grid .box {
   color: var(--white);
 }
 
@@ -1079,6 +1159,9 @@ section {
   width: 100%;
   object-fit: contain;
   margin-bottom: 0.5rem;
+}
+
+#home-body .footer .grid .box img {
   filter: invert(1);
 }
 
@@ -1093,6 +1176,11 @@ section {
   display: block;
   font-size: 1.7rem;
   line-height: 1.8;
+  color: var(--black);
+}
+
+#home-body .footer .grid .box p,
+#home-body .footer .grid .box a {
   color: var(--white);
 }
 
@@ -1112,11 +1200,10 @@ section {
 }
 
 .credit span {
-  color: #c56d31;
+  color: var(--yellow);
   font-family: var(--title-font);
   text-transform: lowercase;
 }
-
 
 .loader {
   position: fixed;
@@ -1135,89 +1222,107 @@ section {
   width: 100px; /* Adjust the size as needed */
   height: 100px; /* Adjust the size as needed */
 }
-.products,
+/* .products,
 .description {
   position: relative;
+} */
+
+.svg-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+  z-index: -1;
+  pointer-events: none;
+}
+
+.food-container {
+  overflow: ;
 }
 
 .bg {
   position: absolute;
   z-index: -1;
+  pointer-events: none;
+  overflow: hidden;
 }
 
-.products #smoke-1 {
-  top: -300%;
+#smoke-1 {
+  top: -100%;
   left: -600px;
   height: 550%;
   opacity: 40%;
 }
 
-.products #smoke-2 {
-  top: -200%;
-  right: -40%;
-  opacity: 20%;
+#smoke-2 {
+  top: 30%;
+  right: 25%;
+  opacity: 10%;
 }
 
-.products #smoke-3 {
-  top: -400%;
-  opacity: 20%;
-}
-
-.products #potato {
-  height: 55rem;
-  top: -90%;
-  left: -45%;
-  rotate: 20deg;
-}
-
-.description #lettuce {
-  position: absolute;
-  height: 40rem;
-  top: 40%;
-  right: -35%;
+#smoke-3 {
+  top: -30%;
+  right: 50%;
+  height: 150%;
+  opacity: 10%;
 }
 
 #hotdog {
-   height: 45rem;
-   top: 30%;
-   right: -50%;
-   rotate: 350deg;
+  height: 50%;
+  top: 20%;
+  left: -15%;
+  rotate: 20deg;
+}
+
+#potato {
+  height: 45%;
+  top: 60%;
+  right: -10%;
+  rotate: 15deg;
+}
+
+#lettuce {
+  height: 50%;
+  top: -10%;
+  right: -11%;
 }
 
 /* media queries  */
 
 @media (max-width: 1536px) {
-   
-   .hero, .hero-slider {
-      margin-top: 0;
-   }
-   
-   .hero .slide .image {
-      flex: 1 1 25rem;
-    }
+  .hero,
+  .hero-slider {
+    margin-top: 0;
+  }
 
-   .hero .slide .image img {
-      height: 100%;
-      width: 100%;
-   }
+  .hero .slide .image {
+    flex: 1 1 25rem;
+  }
 
-   .swiper-wrapper {
-      margin-bottom: 0;
-   }
+  .hero .slide .image img {
+    height: 100%;
+    width: 100%;
+  }
 
-   .lettuce {
-      height: 30rem;
-      left: -25%;
-   }
+  .swiper-wrapper {
+    margin-bottom: 0;
+  }
 
-   .potato {
-      height: 30rem;
-   }
+  .lettuce {
+    height: 30rem;
+    left: -25%;
+  }
 
-   #hotdog {
-      height: 35rem;
-      right: -30%;
-   }
+  .potato {
+    height: 30rem;
+  }
+
+  /* #hotdog {
+    height: 35rem;
+    right: -30%;
+  } */
 }
 
 @media (max-width: 1280px) {
@@ -1245,9 +1350,30 @@ section {
   }
 
   .bg {
+    opacity: 30%;
+  }
+
+  #hotdog,
+  #lettuce,
+  #potato {
     display: none;
   }
-}
+
+  .franchise .container {
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    max-width: 100%;
+  }
+
+  .franchise .column {
+    flex: 0 0 auto;
+    padding: 5px;
+    width: 100%;
+  }
+  .franchise .image-column, .franchise .cards-column {
+    max-width: 100%;
+  }
 
 @media (max-width: 768px) {
   #menu-btn {
@@ -1273,6 +1399,10 @@ section {
 
   .header .flex .navbar.active {
     clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
+  }
+  
+  .franchise .cards-column {
+    padding: 0 20%;
   }
 }
 

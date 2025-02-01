@@ -36,9 +36,10 @@ include 'components/add_cart.php';
 
 </head>
 
-<body>
+<body id="home-body">
 
    <?php include 'components/user_header.php'; ?>
+
 
 
    <div class="hero-container">
@@ -99,9 +100,9 @@ include 'components/add_cart.php';
             with care and passion. Join us for a memorable dining experience that combines quality ingredients,
             innovative recipes, and a touch of nostalgia.</p>
       </div>
-
-      <img src="./images/designs/lettuce.svg" alt="" class="bg" id="lettuce">
    </section>
+
+
 
    <section class="category">
 
@@ -160,14 +161,14 @@ include 'components/add_cart.php';
                      class="cat"><?= $fetch_products['category']; ?></a>
                   <div class="name"><?= $fetch_products['name']; ?></div>
                   <div class="flex">
-                     <div class="price"><span>₱ </span><?= $fetch_products['price']; ?></div>
+                     <div class="price"><span>$</span><?= $fetch_products['price']; ?></div>
                      <input type="number" name="qty" class="qty" min="1" max="99" value="1" maxlength="2">
                   </div>
                </form>
                <?php
             }
          } else {
-            echo '<p class="empty">no products added yet!</p>';
+            echo '<p class="home-empty empty">no products added yet!</p>';
          }
          ?>
 
@@ -177,19 +178,16 @@ include 'components/add_cart.php';
          <a href="menu.php" class="btn">veiw all</a>
       </div>
 
+   </section>
+
+   <div class="svg-container">
       <img src="./images/designs/smoke-8.svg" alt="" class="bg" id="smoke-1">
       <img src="./images/designs/smoke-4.svg" alt="" class="bg" id="smoke-2">
       <img src="./images/designs/smoke-6.svg" alt="" class="bg" id="smoke-3">
       <img src="./images/designs/potato-2.svg" alt="" class="bg" id="potato">
       <img src="./images/designs/hotdog-3.svg" alt="" class="bg" id="hotdog">
-      
-
-   </section>
-
-
-
-
-
+      <img src="./images/designs/lettuce.svg" alt="" class="bg" id="lettuce">
+   </div>
 
 
    <?php include 'components/footer.php'; ?>
