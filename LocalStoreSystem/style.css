@@ -51,11 +51,18 @@ html {
   overflow-x: hidden;
   scroll-behavior: smooth;
   stop-opacity: 7rem;
-  background-color: var(--black);
   /* background-image: url(../images/Background/chalk5.svg); */
   background-size: cover;
   background-position: center;
   background-repeat: repeat-y;
+}
+
+body {
+  background-color: var(--white);
+}
+
+#home-body {
+  background-color: var(--black);
 }
 
 section {
@@ -293,10 +300,9 @@ section {
   width: 4.5rem;
 }
 
-.hero-container,
-.about-container {
-  margin: 0;
+.hero-container{
   background-color: var(--white);
+  margin: 0;
 }
 
 .hero {
@@ -710,7 +716,7 @@ section {
 .steps .box-container .box p {
   line-height: 2;
   font-size: 1.6rem;
-  color: var(--white);
+  color: var(--black);
 }
 
 .reviews .slide {
@@ -730,7 +736,7 @@ section {
   padding: 1.5rem 0;
   line-height: 2;
   font-size: 1.6rem;
-  color: var(--white);
+  color: var(--black);
 }
 
 .reviews .slide .stars {
@@ -1074,6 +1080,10 @@ section {
   border: var(--border);
   padding: 2rem;
   text-align: center;
+  color: var(--black);
+}
+
+#home-body .footer .grid .box {
   color: var(--white);
 }
 
@@ -1082,6 +1092,9 @@ section {
   width: 100%;
   object-fit: contain;
   margin-bottom: 0.5rem;
+}
+
+#home-body .footer .grid .box img {
   filter: invert(1);
 }
 
@@ -1096,6 +1109,11 @@ section {
   display: block;
   font-size: 1.7rem;
   line-height: 1.8;
+  color: var(--black);
+}
+
+#home-body .footer .grid .box p,
+#home-body .footer .grid .box a {
   color: var(--white);
 }
 
@@ -1137,42 +1155,42 @@ section {
   height: 25rem;
 }
 
-.products,
+/* .products,
 .description {
   position: relative;
-}
+} */
 
 .bg {
   position: absolute;
   z-index: -1;
 }
 
-.products #smoke-1 {
+#smoke-1 {
   top: -300%;
   left: -600px;
   height: 550%;
   opacity: 40%;
 }
 
-.products #smoke-2 {
+#smoke-2 {
   top: -200%;
   right: -40%;
   opacity: 20%;
 }
 
-.products #smoke-3 {
+#smoke-3 {
   top: -400%;
   opacity: 20%;
 }
 
-.products #potato {
+#potato {
   height: 55rem;
   top: -90%;
   left: -45%;
   rotate: 20deg;
 }
 
-.description #lettuce {
+#lettuce {
   position: absolute;
   height: 40rem;
   top: 40%;

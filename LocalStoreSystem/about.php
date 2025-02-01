@@ -49,7 +49,6 @@ if (isset($_SESSION['user_id'])) {
    </div>
 
    <!-- about section starts  -->
-   <div class="about-container">
       <section class="about">
 
          <div class="row">
@@ -69,7 +68,6 @@ if (isset($_SESSION['user_id'])) {
          </div>
 
       </section>
-   </div>
 
    <!-- about section ends -->
 
