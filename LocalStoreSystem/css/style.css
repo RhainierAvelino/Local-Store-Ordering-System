@@ -1077,6 +1077,34 @@ section {
   text-decoration: underline;
 }
 
+.terms-container {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin: 10px 0;
+  font-family: var(--title-font);
+}
+
+.terms-container input[type="checkbox"] {
+  width: 16px;
+  height: 16px;
+  cursor: pointer;
+}
+
+.terms-container label {
+  font-size: 15px;
+  color: #444;
+}
+
+.terms-container a {
+  color: #007BFF;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.terms-container a:hover {
+  text-decoration: underline;
+}
 .user-details .user {
   max-width: 50rem;
   margin: 0 auto;
@@ -1108,6 +1136,8 @@ section {
 .user-details .user .address {
   margin-top: 1rem;
 }
+
+
 
 .quick-view form {
   max-width: 40rem;
