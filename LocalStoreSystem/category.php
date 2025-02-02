@@ -40,7 +40,7 @@ include 'components/add_cart.php';
    <div class="box-container">
 
       <?php
-         $category = $_GET['category'];
+         $category = isset($_GET['category']) ? urldecode($_GET['category']) : '';
          $select_products = $conn->prepare("SELECT * FROM `products` WHERE category = ?");
          $select_products->execute([$category]);
          if($select_products->rowCount() > 0){

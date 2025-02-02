@@ -106,27 +106,36 @@ if(isset($_POST['submit'])){
 </section>
 
 <script>
-  document.addEventListener("DOMContentLoaded", function () {
-    document.querySelector("form").addEventListener("submit", function (e) {
-      let oldPass = document.querySelector("input[name='old_pass']").value.trim();
-      let newPass = document.querySelector("input[name='new_pass']").value.trim();
-      let confirmPass = document.querySelector("input[name='confirm_pass']").value.trim();
+document.addEventListener("DOMContentLoaded", function () {
+  document.querySelector("form").addEventListener("submit", function (e) {
+    let name = document.querySelector("input[name='name']").value.trim();
+    let oldPass = document.querySelector("input[name='old_pass']").value.trim();
+    let newPass = document.querySelector("input[name='new_pass']").value.trim();
+    let confirmPass = document.querySelector("input[name='confirm_pass']").value.trim();
 
-      let passRegex = /^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,}$/; // At least 8 characters, 1 letter, 1 number
+    let passRegex = /^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,}$/; // At least 8 characters, 1 letter, 1 number
 
-      if (newPass && !passRegex.test(newPass)) {
-        alert("New password must be at least 8 characters long and include at least one letter and one number.");
-        e.preventDefault();
-        return;
-      }
+    // Check if at least one field is filled
+    if (!name && !oldPass && !newPass && !confirmPass) {
+      alert("Please fill in at least one field before updating.");
+      e.preventDefault();
+      return;
+    }
 
-      if (newPass && newPass !== confirmPass) {
-        alert("New passwords do not match.");
-        e.preventDefault();
-        return;
-      }
-    });
+    if (newPass && !passRegex.test(newPass)) {
+      alert("New password must be at least 8 characters long and include at least one letter and one number.");
+      e.preventDefault();
+      return;
+    }
+
+    if (newPass && newPass !== confirmPass) {
+      alert("New passwords do not match.");
+      e.preventDefault();
+      return;
+    }
   });
+});
+
 </script>
 
 <?php include 'components/footer.php'; ?>

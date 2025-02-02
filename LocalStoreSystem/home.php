@@ -110,22 +110,22 @@ include 'components/add_cart.php';
 
       <div class="box-container">
 
-         <a href="category.php?category=fast food" class="box">
+         <a href="category.php?category=Hotdogs" class="box">
             <img src="images/cat-1.png" alt="">
             <h3>Hotdogs</h3>
          </a>
 
-         <a href="category.php?category=main dish" class="box">
-            <img src="images/cat-2.png" alt="">
+         <a href="category.php?category=<?= urlencode('Appetizers-&-Sides'); ?>" class="box">
+         <img src="images/cat-2.png" alt="">
             <h3>Appetizers & Sides</h3>
          </a>
 
-         <a href="category.php?category=drinks" class="box">
+         <a href="category.php?category=<?= urlencode('Refreshers-&-Coolers'); ?>" class="box">
             <img src="images/cat-3.png" alt="">
             <h3>Refreshers & Coolers</h3>
          </a>
 
-         <a href="category.php?category=desserts" class="box">
+         <a href="category.php?category=<?= urlencode('Coffee-&-Matcha'); ?>" class="box">
             <img src="images/cat-4.png" alt="">
             <h3>Coffee & Matcha</h3>
          </a>
@@ -161,7 +161,7 @@ include 'components/add_cart.php';
                      class="cat"><?= $fetch_products['category']; ?></a>
                   <div class="name"><?= $fetch_products['name']; ?></div>
                   <div class="flex">
-                     <div class="price"><span>$</span><?= $fetch_products['price']; ?></div>
+                     <div class="price"><span>₱ </span><?= $fetch_products['price']; ?></div>
                      <input type="number" name="qty" class="qty" min="1" max="99" value="1" maxlength="2">
                   </div>
                </form>
