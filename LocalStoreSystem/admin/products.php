@@ -93,9 +93,9 @@ if(isset($_GET['delete'])){
       <select name="category" class="box" required>
          <option value="" disabled selected>select category --</option>
          <option value="Hotdogs">Hotdogs</option>
-         <option value="Appetizers & Sides">Appetizers & Sides </option>
-         <option value="Refreshers & Coolers">Refreshers & Coolers </option>
-         <option value="Coffee & Matcha">Coffee & Matcha </option>
+         <option value="Appetizers-&-Sides">Appetizers & Sides </option>
+         <option value="Refreshers-&-Coolers">Refreshers & Coolers </option>
+         <option value="Coffee-&-Matcha">Coffee & Matcha </option>
       </select>
       <input type="file" name="image" class="box" accept="image/jpg, image/jpeg, image/png, image/webp" required>
       <input type="submit" value="add product" name="add_product" class="btn">
@@ -125,8 +125,8 @@ if(isset($_GET['delete'])){
       </div>
       <div class="name"><?= $fetch_products['name']; ?></div>
       <div class="flex-btn">
-         <a href="update_product.php?update=<?= $fetch_products['id']; ?>" class="option-btn">update</a>
-         <a href="products.php?delete=<?= $fetch_products['id']; ?>" class="delete-btn" onclick="return confirm('delete this product?');">delete</a>
+      <a href="product_update.php?update=<?= $fetch_products['id']; ?>" class="option-btn">Update</a>
+      <a href="products.php?delete=<?= $fetch_products['id']; ?>" class="delete-btn" onclick="return confirm('delete this product?');">delete</a>
       </div>
    </div>
    <?php

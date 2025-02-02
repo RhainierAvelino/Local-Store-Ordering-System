@@ -2,12 +2,15 @@
 
 :root {
   --yellow: #c56d31;
+  --yellow-dark: #a04f1f;
   --red: #70911f;
   --white: #fdf5e7;
   --black: #000000;
   --light-color: #b0a8a8;
   --border: 0.2rem solid var(--white);
   --title-font: "DK Headlock", sans-serif;
+  --black-border: 0.2rem solid var(--black);
+  --white-border: 0.2rem solid var(--white);
 }
 
 * {
@@ -494,8 +497,15 @@ section {
   gap: 1.5rem;
 }
 
+#home-body .products .box-container .box {
+  border: var(--white-border);
+  padding: 1.5rem;
+  position: relative;
+  overflow: hidden;
+}
+
 .products .box-container .box {
-  border: var(--border);
+  border: var(--black-border);
   padding: 1.5rem;
   position: relative;
   overflow: hidden;
@@ -515,8 +525,8 @@ section {
   height: 4.5rem;
   width: 4.5rem;
   line-height: 4.3rem;
-  border: var(--border);
-  background-color: var(--black);
+  border: var(--black);
+  background-color: var(--white);
   cursor: pointer;
   font-size: 2rem;
   color: var(--black);
@@ -524,9 +534,10 @@ section {
   text-align: center;
 }
 
+
 .products .box-container .box .fa-eye:hover,
 .products .box-container .box .fa-shopping-cart:hover {
-  background-color: var(--black);
+  background-color: var(--yellow);
   color: var(--white);
 }
 
@@ -555,6 +566,32 @@ section {
   color: var(--black);
   text-decoration: underline;
 }
+#eye {
+  background-color: var(--yellow);
+  color: var(--white);
+}
+
+#eye:hover {
+  background-color: var(--yellow-dark);
+  color: var(--black);
+}
+
+#cart-menu {
+  background-color: var(--yellow);
+  color: var(--white);
+}
+
+#cart-menu:hover {
+  background-color: var(--yellow-dark);
+  color: var(--black);
+}
+
+
+#home-body .products .box-container .box .name {
+  font-size: 2rem;
+  color: var(--white);
+  margin: 1rem 0;
+}
 
 .products .box-container .box .name {
   font-size: 2rem;
@@ -567,6 +604,12 @@ section {
   align-items: center;
   gap: 1rem;
   margin-top: 1.5rem;
+}
+
+#home-body .products .box-container .box .flex .price {
+  margin-right: auto;
+  font-size: 2.5rem;
+  color: var(--white);
 }
 
 .products .box-container .box .flex .price {
@@ -582,7 +625,7 @@ section {
 
 .products .box-container .box .flex .qty {
   padding: 1rem;
-  border: var(--border);
+  border: var(--black-border);
   font-size: 1.8rem;
   color: var(--black);
   font-weight: bold;
@@ -644,17 +687,18 @@ section {
   flex-wrap: wrap;
   justify-content: space-between;
   margin-top: 3rem;
-  border: var(--border);
+  border: var(--black-border);
   padding: 1rem;
 }
 
 .products .cart-total p {
   font-size: 2.5rem;
-  color: var(--light-color);
+  color: var(--black);
 }
 
 .products .cart-total p span {
   color: var(--red);
+  font-weight: 600;
 }
 
 .products .cart-total .btn {
@@ -836,7 +880,7 @@ section {
 }
 
 .contact .row form {
-  border: var(--border);
+  border: var(--black-border);
   flex: 1 1 40rem;
   padding: 2rem;
   text-align: center;
@@ -854,7 +898,7 @@ section {
   margin: 0.7rem 0;
   font-size: 1.8rem;
   color: var(--black);
-  border: var(--border);
+  border: var(--black-border);
   padding: 1.4rem;
   width: 100%;
 }
@@ -893,7 +937,7 @@ section {
 .checkout form {
   max-width: 50rem;
   margin: 0 auto;
-  border: var(--border);
+  border: var(--black-border);
   padding: 2rem;
 }
 
@@ -928,6 +972,10 @@ section {
   color: var(--light-color);
 }
 
+#grand-total {
+  color: var(--black);
+}
+
 .checkout form .cart-items p .price {
   color: var(--yellow);
 }
@@ -939,6 +987,7 @@ section {
 
 .checkout form .cart-items .grand-total .price {
   color: var(--red);
+  font-weight: 600;
 }
 
 .checkout form .user-info p {
@@ -958,7 +1007,7 @@ section {
 
 .checkout form .user-info .box {
   width: 100%;
-  border: var(--border);
+  border: var(--black-border);
   padding: 1.4rem;
   margin-top: 2rem;
   margin-bottom: 1rem;
@@ -970,6 +1019,7 @@ section {
   flex-wrap: wrap;
   gap: 1.5rem;
   align-items: flex-start;
+  border: var(--black-border);
 }
 
 .orders .box-container .box {
@@ -990,7 +1040,7 @@ section {
 }
 
 .form-container form {
-  border: var(--border);
+  border: var(--black-border);
   margin: 0 auto;
   max-width: 50rem;
   padding: 2rem;
@@ -1007,7 +1057,7 @@ section {
 .form-container form .box {
   margin: 0.7rem 0;
   width: 100%;
-  border: var(--border);
+  border: var(--black-border);
   padding: 1.4rem;
   font-size: 1.8rem;
   color: var(--black);
@@ -1030,7 +1080,7 @@ section {
 .user-details .user {
   max-width: 50rem;
   margin: 0 auto;
-  border: var(--border);
+  border: var(--black-border);
   padding: 2rem;
 }
 
@@ -1053,7 +1103,6 @@ section {
 
 .user-details .user p i {
   margin-right: 1rem;
-  color: var(--light-color);
 }
 
 .user-details .user .address {
@@ -1143,8 +1192,14 @@ section {
   align-items: flex-start;
 }
 
-.footer .grid .box {
+#home-body .footer .grid .box {
   border: var(--border);
+  padding: 2rem;
+  text-align: center;
+  color: var(--black);
+}
+.footer .grid .box {
+  border: var(--black-border);
   padding: 2rem;
   text-align: center;
   color: var(--black);
@@ -1239,7 +1294,7 @@ section {
 }
 
 .food-container {
-  overflow: ;
+  overflow: hidden;
 }
 
 .bg {
@@ -1371,8 +1426,9 @@ section {
     padding: 5px;
     width: 100%;
   }
-  .franchise .image-column, .franchise .cards-column {
-    max-width: 100%;
+    .franchise .image-column, .franchise .cards-column {
+      max-width: 100%;
+    }
   }
 
 @media (max-width: 768px) {
