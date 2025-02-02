@@ -14,8 +14,7 @@ if (isset($_SESSION['user_id'])) {
 include 'components/add_cart.php';
 
 ?>
-<!-- HELLOWORLD -->
- <!-- another try -->
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -54,7 +53,7 @@ include 'components/add_cart.php';
                   <div class="content">
                      <span>order online</span>
                      <h3>Crispy Twister Fries</h3>
-                     <a href="menu.html" class="btn">see menus</a>
+                     <a href="menu.php" class="btn">see menus</a>
                   </div>
                   <div class="image">
                      <img src="images/mojos.png" alt="">
@@ -65,7 +64,7 @@ include 'components/add_cart.php';
                   <div class="content">
                      <span>order online</span>
                      <h3>Cold Brew Latte</h3>
-                     <a href="menu.html" class="btn">see menus</a>
+                     <a href="menu.php" class="btn">see menus</a>
                   </div>
                   <div class="image">
                      <img src="images/coffee.png" alt="">

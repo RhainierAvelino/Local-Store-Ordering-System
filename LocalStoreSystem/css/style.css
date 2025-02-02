@@ -256,7 +256,7 @@ section {
 
 .header .flex .profile {
   background-color: var(--white);
-  border: var(--border);
+  border: var(--black-border);
   padding: 1.5rem;
   text-align: center;
   position: absolute;
@@ -563,7 +563,7 @@ section {
 }
 
 .products .box-container .box .cat:hover {
-  color: var(--black);
+  color: var(--yellow);
   text-decoration: underline;
 }
 #eye {
@@ -1112,7 +1112,7 @@ section {
 .quick-view form {
   max-width: 40rem;
   padding: 2rem;
-  border: var(--border);
+  border: var(--black-border);
   position: relative;
   margin: 0 auto;
 }
@@ -1137,7 +1137,7 @@ section {
 .quick-view form .name {
   font-size: 2rem;
   margin: 0.5rem 0;
-  color: var(--white);
+  color: var(--black);
 }
 
 .quick-view form .flex {
@@ -1160,8 +1160,9 @@ section {
 }
 
 .quick-view form .flex .qty {
-  border: var(--border);
+  border: var(--black-border);
   padding: 1rem;
+  font-weight: 600;
   font-size: 1.8rem;
   color: var(--black);
   font-weight: bold;
@@ -1171,9 +1172,10 @@ section {
   width: 100%;
   padding: 1rem 3rem;
   text-align: center;
-  border: var(--border);
+  border: var(--black-border);
   font-size: 2rem;
   color: var(--black);
+  border-radius: 7px;
   cursor: pointer;
   text-transform: capitalize;
   background: none;
@@ -1443,15 +1445,21 @@ section {
     right: 0;
     border-top: var(--border);
     border-bottom: var(--border);
-    background-color: var(--white);
+    background-color:#ffc168;
+    border-bottom: 1px solid var(--black);
+    border-top: 1px solid var(--black);
     transition: 0.2s linear;
+    display: flex;
+    justify-content: center;
     clip-path: polygon(0 0, 100% 0, 100% 0, 0 0);
   }
 
   .header .flex .navbar a {
     display: block;
     margin: 2rem;
+    color: var(--black);
   }
+
 
   .header .flex .navbar.active {
     clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);

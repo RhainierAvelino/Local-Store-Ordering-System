@@ -15,7 +15,25 @@ if(isset($message)){
 
    <section class="flex">
 
-      <a href="dashboard.php" class="logo">Admin<span>Panel</span></a>
+      <a href="dashboard.php" class="logo" id="admin-font">Admin<span id="admin-font">Dashboard</span></a>
+      <style>
+         @import url("https://fonts.googleapis.com/css2?family=Rubik:wght@300;400;500;600&display=swap");
+        #admin-font {
+            font-family: "Rubik", sans-serif;
+            font-size: 20px;
+            font-weight: 500;
+            color: #333;
+            text-transform: uppercase;
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+         }
+         #admin-font span {
+            font-weight: 600;
+            color: #c56d31;
+            margin-left: 5px;
+         }
+      </style>
 
       <nav class="navbar">
          <a href="dashboard.php">home</a>

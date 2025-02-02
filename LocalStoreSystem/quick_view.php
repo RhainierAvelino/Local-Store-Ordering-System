@@ -50,7 +50,7 @@ include 'components/add_cart.php';
       <input type="hidden" name="price" value="<?= $fetch_products['price']; ?>">
       <input type="hidden" name="image" value="<?= $fetch_products['image']; ?>">
       <img src="uploaded_img/<?= $fetch_products['image']; ?>" alt="">
-      <a href="category.php?category=<?= $fetch_products['category']; ?>" class="cat"><?= $fetch_products['category']; ?></a>
+      <a href="category.php?category=<?= urlencode($fetch_products['category']); ?>" class="cat"><?= htmlspecialchars($fetch_products['category']); ?></a>
       <div class="name"><?= $fetch_products['name']; ?></div>
       <div class="flex">
          <div class="price"><span>₱ </span><?= $fetch_products['price']; ?></div>

@@ -52,7 +52,7 @@ $search = isset($_GET['search']) ? $_GET['search'] : '';
 <section class="accounts">
    <h1 class="heading">Users Account</h1>
 
-   <div class="box-container">
+<div class="user-accounts">
       <?php
          // Prepare SQL query with search filter
          $select_account = $conn->prepare("SELECT * FROM `users` WHERE `id` LIKE ? OR `name` LIKE ?");

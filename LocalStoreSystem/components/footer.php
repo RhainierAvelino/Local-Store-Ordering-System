@@ -6,21 +6,21 @@
          <img src="images/email-icon.png" alt="">
          <h3>our email</h3>
          <a href="mailto:old.yorkers@gmail.com">old.yorkers@gmail.com</a>
-         <p>‎ </p>
+         <p>‎</p>
       </div>
 
       <div class="box">
          <img src="images/clock-icon.png" alt="">
          <h3>opening hours</h3>
          <p>02:00 PM to 01:00 AM</p>
-         <p>‎ </p>
+         <p>‎</p>
       </div>
 
       <div class="box">
          <img src="images/phone-icon.png" alt="">
          <h3>our number</h3>
          <a href="tel:1234567890">0945 680 4666</a>
-         <p>‎ </p>
+         <p>‎</p>
 
       </div>
       

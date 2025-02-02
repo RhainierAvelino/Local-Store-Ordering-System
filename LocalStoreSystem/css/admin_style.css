@@ -1,7 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@100;200;300;400&display=swap');
 
 :root{
-   --main-color:#4834d4;
+   --main-color:#c56d31;
    --red:#e74c3c;
    --orange:#f39c12;
    --black:#34495e;
@@ -302,7 +302,8 @@ section{
    font-size: 1.8rem;
    border:var(--border);
    margin:1rem 0;
-   color:var(--light-color);
+   color: #70911f;
+   font-weight: 600;
 }
 
 .add-products form{
@@ -422,13 +423,18 @@ section{
    color:var(--black);
 }
 
-.placed-orders .box-container{
-   display: grid;
-   grid-template-columns: repeat(auto-fit, 33rem);
-   gap:1.5rem;
+.placed-orders .box-container {
+   display: inline-flex;
+   flex-wrap: wrap;
+   gap: 1.5rem;
    justify-content: center;
    align-items: flex-start;
 }
+
+.placed-orders .box-container .box {
+   min-width: 120rem; 
+}
+
 
 .placed-orders .box-container .box{
    background-color: var(--white);
@@ -461,23 +467,85 @@ section{
    border-radius: .5rem;
 }
 
-.accounts .box-container{
+.accounts .box-container {
+   display: flex;
+   justify-content: center;
+   margin-bottom: 2rem; /* Add spacing between register box and admin accounts */
+}
+
+/* Register box styling */
+.accounts .box-container .register-box {
+   width: 100%;
+   max-width: 40rem; /* Limit width */
+   text-align: center;
+   padding: 2rem;
+   background-color: var(--white);
+   border-radius: .5rem;
+   box-shadow: var(--box-shadow);
+   border: var(--border);
+}
+
+/* Admin accounts grid */
+.admin-accounts {
    display: grid;
-   grid-template-columns: repeat(auto-fit, 33rem);
-   gap:1.5rem;
+   grid-template-columns: repeat(auto-fit, minmax(33rem, 1fr)); /* Two-column layout */
+   gap: 1.5rem;
    justify-content: center;
    align-items: flex-start;
 }
 
-.accounts .box-container .box{
+.admin-accounts .box {
    background-color: var(--white);
    border-radius: .5rem;
    box-shadow: var(--box-shadow);
-   border:var(--border);
-   padding:2rem;
-   padding-top: 1rem;
+   border: var(--border);
+   padding: 2rem;
    text-align: center;
 }
+.user-accounts {
+   display: grid;
+   gap: 1.5rem;
+   grid-template-columns: repeat(2, 1fr);
+   justify-content: center;
+   align-items: flex-start;
+   max-width: 110rem;
+}
+
+.user-accounts .box {
+   background-color: var(--white);
+   border-radius: .5rem;
+   box-shadow: var(--box-shadow);
+   border: var(--border);
+   padding: 2rem;
+   text-align: center;
+}
+
+.user-accounts .box p {
+   padding: .5rem 0;
+   font-size: 20px;
+   color: var(--black);
+}
+
+.user-accounts .box p span {
+   color: var(--main-color);
+}
+
+.user-accounts .box .flex-btn {
+   display: flex;
+   gap: 1rem;
+   justify-content: center;
+}
+
+.admin-accounts .box p {
+   padding: .5rem 0;
+   font-size: 1.8rem;
+   color: var(--black);
+}
+
+.admin-accounts .box p span {
+   color: var(--main-color);
+}
+
 
 .accounts .box-container .box p{
    padding: .5rem 0;
