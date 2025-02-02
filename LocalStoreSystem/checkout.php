@@ -87,7 +87,7 @@ if(isset($_POST['submit'])){
             echo '<p class="empty">Your cart is empty!</p>';
          }
          ?>
-         <p class="grand-total"><span class="name">Grand Total :</span> <span class="price">₱<?= $grand_total; ?></span></p>
+         <p class="grand-total"><span class="name" id="grand-total">Grand Total :</span> <span class="price">₱<?= $grand_total; ?></span></p>
          <a href="cart.php" class="btn">View Cart</a>
       </div>
 
